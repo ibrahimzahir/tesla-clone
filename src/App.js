@@ -7,6 +7,7 @@ import {
   Redirect,
 } from "react-router-dom";
 import "./App.css";
+import Menu from "./Menu";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,7 +15,7 @@ function App() {
     <Router>
       <div className="App">
         <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-        {/* HeaderBlock */}
+        {isMenuOpen && <Menu />}
       </div>
     </Router>
   );
