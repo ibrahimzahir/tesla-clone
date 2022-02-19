@@ -1,22 +1,28 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import LanguageOutlinedIcon from "@material-ui/icons/LanguageOutlined";
+import "./Login.css";
 import ButtonPrimary from "./ButtonPrimary";
+import ButtonSecondary from "./ButtonSecondary";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const history = useNavigate();
 
   const signIn = (e) => {
     e.preventDefault();
   };
+
   return (
     <div className="login">
       <div className="login__header">
-        <div className="lgoin__logo">
-          <Link to="/login">
+        <div className="login__logo">
+          <Link to="/">
+            {" "}
             <img
-              className="header__logoImg"
               src="https://assets.website-files.com/5e8fceb1c9af5c3915ec97a0/5ec2f037975ed372da9f6286_Tesla-Logo-PNG-HD.png"
               alt=""
             />
@@ -45,6 +51,12 @@ function Login() {
           />
           <ButtonPrimary name="Sign In" type="submit" onClick={signIn} />
         </form>
+        <div className="login__divider">
+          <hr /> <span>OR</span> <hr />
+        </div>
+        <Link to="/signup">
+          <ButtonSecondary name="create account" />
+        </Link>
       </div>
     </div>
   );
