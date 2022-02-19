@@ -1,21 +1,24 @@
-import React, { useState } from "react";
-import Header from "./Header";
+import React from "react";
+
 import {
   BrowserRouter as Router,
-  Switch,
   Route,
+  Routes,
   Redirect,
 } from "react-router-dom";
 import "./App.css";
-import Menu from "./Menu";
+
+import HeaderSwitch from "./HeaderSwitch";
+import Login from "./Login";
 
 function App() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <Router>
       <div className="App">
-        <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-        {isMenuOpen && <Menu />}
+        <Routes>
+          <Route path="/" exact element={<HeaderSwitch />} />
+          <Route path="/login" exact element={<Login />} />
+        </Routes>
       </div>
     </Router>
   );
