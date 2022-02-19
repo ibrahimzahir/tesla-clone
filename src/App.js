@@ -7,11 +7,13 @@ import {
   Redirect,
 } from "react-router-dom";
 import "./App.css";
-
+import { useSelector } from "react-redux";
+import { selectUser } from "./features/userSlice";
 import HeaderSwitch from "./HeaderSwitch";
 import Login from "./Login";
 
 function App() {
+  const use = useSelector(selectUser);
   return (
     <Router>
       <div className="App">
